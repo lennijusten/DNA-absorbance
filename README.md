@@ -23,7 +23,7 @@ The data was sorted in ascending order based on wavelength, converted to the cor
 ![DNA Absorption Coefficient](DNA-absorption-coefficient.png)
 
 <p align="center">
-Figure 1: UV absorption spectra of the four nucleotides - adenine (A), cytosine (C), guanine (G), and thymine (T) - extracted from Kowalski (2009, 26).
+Figure 1: UV absorption spectra of the four primary nucleotides in DNA - adenine (A), cytosine (C), guanine (G), and thymine (T) - extracted from Kowalski (2009, 26).
 </p>
   
 ## References
