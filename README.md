@@ -22,8 +22,10 @@ The data was sorted in ascending order based on wavelength, converted to the cor
 
 ![DNA Absorption Coefficient](DNA-absorption-coefficient.png)
 
-Figure: UV absorption spectra of the four nucleotides - adenine (A), cytosine (C), guanine (G), and thymine (T) - extracted from Kowalski (2009, 26). Absorption coefficients are reported in units of mL mg-1 cm-1. Data was interpolated at 1 nm intervals between 210 and 320 nm.
-
+<p align="center">
+Figure 1: UV absorption spectra of the four nucleotides - adenine (A), cytosine (C), guanine (G), and thymine (T) - extracted from Kowalski (2009, 26).
+</p>
+  
 ## References
 Rodger, A. UV Absorbance Spectroscopy of Biological Macromolecules. in Encyclopedia of Biophysics (ed. Roberts, G. C. K.) 2714–2718 (Springer, 2013).  
   
