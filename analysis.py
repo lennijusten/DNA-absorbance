@@ -21,7 +21,7 @@ def generate_combined_df(files):
         # Add the 'Absorption' column to combined_df
         # Use the file name (without the extension) as the column name
         column_name = os.path.splitext(file)[0]
-        combined_df[column_name] = df['Absorption']
+        combined_df[column_name] = df['Absorption Coefficient']
 
     # Calculate the mean and standard deviation of absorption at each wavelength
     combined_df['Mean Absorption Coefficient'] = combined_df.iloc[:, 1:].mean(axis=1)
@@ -31,7 +31,7 @@ def generate_combined_df(files):
     return combined_df
 
 
-combined_df = generate_combined_df(files)
+DNA_combined_df = generate_combined_df(files)
 
 
 def plot_data(df):
@@ -59,7 +59,7 @@ def plot_data(df):
     # Add labels and title
     plt.xlabel('Wavelength (nm)')
     plt.ylabel('Absorption Coefficient (ml mg-1 cm-1)')
-    plt.title('Absorption Coefficients of the DNA Nucleotides')
+    plt.title('Absorption Coefficients of the DNA Nucleobases')
 
     # Add a legend
     plt.legend()
@@ -70,4 +70,41 @@ def plot_data(df):
     plt.show()
 
 # Call the function to plot the data
-plot_data(combined_df)
+plot_data(DNA_combined_df)
+
+
+def combine_plot(DNA_df, protein_df):
+    # Use an academic style for the plot
+    style.use('seaborn-whitegrid')
+
+    # Create a new figure
+    plt.figure(figsize=(10, 6))
+    plt.plot(DNA_df['Wavelength'], DNA_df['Mean Absorption Coefficient'], linestyle='solid', color='red', label='DNA')
+
+    # Plot the mean absorption coefficient with a line
+    plt.plot(protein_df['Wavelength'], protein_df['Mean Absorption Coefficient'], color='black', label='Protein')
+
+    # Add a shaded region for the standard deviation
+    plt.fill_between(protein_df['Wavelength'],
+                     protein_df['Mean Absorption Coefficient'] - protein_df['Absorption Coefficient Std Dev'],
+                     protein_df['Mean Absorption Coefficient'] + protein_df['Absorption Coefficient Std Dev'],
+                     color='gray', alpha=0.3, label='Standard Deviation')
+
+    plt.yscale('log')
+
+    # Add labels and title
+    plt.xlabel('Wavelength (nm)')
+    plt.ylabel('Absorption Coefficient (ml mg-1 cm-1)')
+    plt.title('Absorption Coefficients of DNA Nucleobases and Proteins')
+
+    # Add a legend
+    plt.legend()
+
+    plt.savefig('DNA-protein-absorption-coefficient.png', dpi=300)
+
+    # Show the plot
+    plt.show()
+
+
+# protein_combine_df = pd.read_csv('/Users/lenni/PycharmProjects/protein-absorbance/data-table.csv')
+# combine_plot(DNA_combined_df, protein_combine_df)
